@@ -172,7 +172,7 @@
             // 
             // button_Search
             // 
-            button_Search.Location = new Point(114, 227);
+            button_Search.Location = new Point(156, 227);
             button_Search.Margin = new Padding(3, 2, 3, 2);
             button_Search.Name = "button_Search";
             button_Search.Size = new Size(166, 78);
@@ -190,6 +190,7 @@
             button_Delete.TabIndex = 14;
             button_Delete.Text = "Удалить";
             button_Delete.UseVisualStyleBackColor = true;
+            button_Delete.Click += button_Delete_Click;
             // 
             // dataGridView1
             // 
@@ -209,34 +210,35 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(631, 186);
+            label5.Location = new Point(604, 186);
             label5.Name = "label5";
-            label5.Size = new Size(209, 22);
+            label5.Size = new Size(290, 22);
             label5.TabIndex = 16;
-            label5.Text = "Какую группу удалить?";
+            label5.Text = "Группа, которую нужно удалить:";
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Times New Roman", 12F);
-            textBox1.Location = new Point(846, 179);
+            textBox1.Location = new Point(900, 179);
             textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(156, 35);
             textBox1.TabIndex = 17;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Location = new Point(30, 186);
             label6.Name = "label6";
-            label6.Size = new Size(209, 22);
+            label6.Size = new Size(275, 22);
             label6.TabIndex = 18;
-            label6.Text = "Какую группу удалить?";
+            label6.Text = "Фамилия человека для поиска:";
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Times New Roman", 12F);
-            textBox2.Location = new Point(245, 179);
+            textBox2.Location = new Point(304, 179);
             textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(148, 35);

@@ -35,11 +35,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(12, 64);
+            label1.Location = new Point(60, 61);
             label1.Name = "label1";
-            label1.Size = new Size(536, 41);
+            label1.Size = new Size(443, 41);
             label1.TabIndex = 1;
-            label1.Text = "!!!Добавление прошло успешно!!!";
+            label1.Text = "!!!Операция выполнилась!!!";
             // 
             // Form3
             // 

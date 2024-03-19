@@ -42,7 +42,7 @@ namespace WinFormsApp1
                         student.FirstName = FirstNameText.Text;
                         student.LastName = LasrNameText.Text;
                         student.SecondName = SecondNameText.Text;
-                        student.Group = x;
+                        student.Group = Group.Text;
                         db.Add(student);
                         db.SaveChanges();
                         Form3.ShowDialog();
@@ -65,9 +65,7 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    {
-                        Form2.ShowDialog();
-                    }
+                    Form2.ShowDialog();
                 }
             }
         }
@@ -99,18 +97,64 @@ namespace WinFormsApp1
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection(ConnectionString);
-            con.Open();
-            SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE lastname = @lastname", con);
-            string lastname = textBox2.Text;
-            sdf.SelectCommand.Parameters.AddWithValue("@lastname", lastname) ;
-            DataTable sd = new DataTable();
-            sdf.Fill(sd);
-            con.Close();
-            dataGridView1.DataSource = sd;
+            Form2 Form2 = new Form2();
+            if (textBox2.Text != string.Empty)
+            {
+                con = new SqlConnection(ConnectionString);
+                con.Open();
+                SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE lastname = @lastname", con);
+                string lastname = textBox2.Text;
+                sdf.SelectCommand.Parameters.AddWithValue("@lastname", lastname);
+                DataTable sd = new DataTable();
+                sdf.Fill(sd);
+                con.Close();
+                dataGridView1.DataSource = sd;
+            }
+            else
+            {
+                Form2.ShowDialog();
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            Form3 Form3 = new Form3();
+            Form2 Form2 = new Form2();
+            if (textBox1.Text != string.Empty)
+            {
+                /*bool succes = Int32.TryParse(textBox1.Text, out int x);
+                if (succes && x == 1 || x == 2 || x == 3 || x == 4)
+                {*/
+                con = new SqlConnection(ConnectionString);
+                con.Open();
+                DataTable sd = new DataTable();
+                SqlDataAdapter sdf = new SqlDataAdapter("DELETE FROM Students WHERE [group] = @group", con);
+                string group = textBox1.Text;
+                sdf.SelectCommand.Parameters.AddWithValue("@group", group);
+                sdf.Fill(sd);
+                Form3.ShowDialog();
+                sdf = new SqlDataAdapter("SELECT * FROM Students", con);
+                sd = new DataTable();
+                sdf.Fill(sd);
+                con.Close();
+                dataGridView1.DataSource = sd;
+                /*}
+                else
+                {
+                    Form2.ShowDialog();
+                }*/
+            }
+            else
+            {
+                Form2.ShowDialog();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

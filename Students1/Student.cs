@@ -43,8 +43,8 @@ internal class Student
             else value = "";
         }
     }
-    public int Group;
-    public int group
+    public string Group;
+    public string group
     {
         get { return Group; }
         set
@@ -52,7 +52,7 @@ internal class Student
             Group = value;
         }
     }
-    public Student(string LastName, string FirstName, string SecondName,  int Group)
+    public Student(string LastName, string FirstName, string SecondName,  string Group)
     {
         this.FirstName = FirstName;
         this.SecondName = SecondName;
@@ -64,7 +64,7 @@ internal class Student
         FirstName = "";
         SecondName = "";
         LastName = "";
-        Group = 0;
+        Group = "";
     }
 }
 
