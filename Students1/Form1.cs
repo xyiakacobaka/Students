@@ -97,10 +97,9 @@ namespace WinFormsApp1
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            Form2 Form2 = new Form2();
+            con = new SqlConnection(ConnectionString);
             if (textBox2.Text != string.Empty)
             {
-                con = new SqlConnection(ConnectionString);
                 con.Open();
                 SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE lastname = @lastname", con);
                 string lastname = textBox2.Text;
@@ -112,7 +111,12 @@ namespace WinFormsApp1
             }
             else
             {
-                Form2.ShowDialog();
+                con.Open();
+                SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students", con);
+                DataTable sd = new DataTable();
+                sdf.Fill(sd);
+                dataGridView1.DataSource = sd;
+                con.Close();
             }
         }
 
