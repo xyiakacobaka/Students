@@ -99,6 +99,19 @@ namespace WinFormsApp1
 
         private void button_Search_Click(object sender, EventArgs e)
         {
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+            SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE lastname = @lastname", con);
+            string lastname = textBox2.Text;
+            sdf.SelectCommand.Parameters.AddWithValue("@lastname", lastname) ;
+            DataTable sd = new DataTable();
+            sdf.Fill(sd);
+            con.Close();
+            dataGridView1.DataSource = sd;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
