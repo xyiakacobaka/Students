@@ -48,6 +48,9 @@
             textBox1 = new TextBox();
             label6 = new Label();
             textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            label7 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -125,7 +128,7 @@
             // 
             // button_Add
             // 
-            button_Add.Location = new Point(1003, 22);
+            button_Add.Location = new Point(1228, 22);
             button_Add.Margin = new Padding(3, 2, 3, 2);
             button_Add.Name = "button_Add";
             button_Add.Size = new Size(112, 37);
@@ -155,7 +158,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1001, 105);
+            label3.Location = new Point(1226, 105);
             label3.Name = "label3";
             label3.Size = new Size(114, 22);
             label3.TabIndex = 11;
@@ -164,7 +167,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1001, 142);
+            label4.Location = new Point(1226, 142);
             label4.Name = "label4";
             label4.Size = new Size(114, 22);
             label4.TabIndex = 12;
@@ -172,7 +175,7 @@
             // 
             // button_Search
             // 
-            button_Search.Location = new Point(156, 227);
+            button_Search.Location = new Point(123, 227);
             button_Search.Margin = new Padding(3, 2, 3, 2);
             button_Search.Name = "button_Search";
             button_Search.Size = new Size(166, 78);
@@ -183,7 +186,7 @@
             // 
             // button_Delete
             // 
-            button_Delete.Location = new Point(732, 227);
+            button_Delete.Location = new Point(1016, 227);
             button_Delete.Margin = new Padding(3, 2, 3, 2);
             button_Delete.Name = "button_Delete";
             button_Delete.Size = new Size(166, 78);
@@ -203,14 +206,14 @@
             dataGridView1.Location = new Point(30, 322);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1085, 225);
+            dataGridView1.Size = new Size(1310, 225);
             dataGridView1.TabIndex = 15;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(604, 186);
+            label5.Location = new Point(888, 186);
             label5.Name = "label5";
             label5.Size = new Size(290, 22);
             label5.TabIndex = 16;
@@ -219,7 +222,7 @@
             // textBox1
             // 
             textBox1.Font = new Font("Times New Roman", 12F);
-            textBox1.Location = new Point(900, 179);
+            textBox1.Location = new Point(1184, 179);
             textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(156, 35);
@@ -231,25 +234,55 @@
             label6.AutoSize = true;
             label6.Location = new Point(30, 186);
             label6.Name = "label6";
-            label6.Size = new Size(275, 22);
+            label6.Size = new Size(238, 22);
             label6.TabIndex = 18;
-            label6.Text = "Фамилия человека для поиска:";
+            label6.Text = "Номер группы для поиска:";
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Times New Roman", 12F);
-            textBox2.Location = new Point(304, 179);
+            textBox2.Location = new Point(274, 179);
             textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(148, 35);
             textBox2.TabIndex = 19;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(1080, 25);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(118, 30);
+            textBox3.TabIndex = 21;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(994, 28);
+            label7.Name = "label7";
+            label7.Size = new Size(80, 22);
+            label7.TabIndex = 20;
+            label7.Text = "Оценка:";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(582, 249);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 22;
+            button1.Text = "Защита";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1163, 559);
+            ClientSize = new Size(1388, 559);
+            Controls.Add(button1);
+            Controls.Add(textBox3);
+            Controls.Add(label7);
             Controls.Add(textBox2);
             Controls.Add(label6);
             Controls.Add(textBox1);
@@ -305,5 +338,8 @@
         private TextBox textBox1;
         private Label label6;
         private TextBox textBox2;
+        private TextBox textBox3;
+        private Label label7;
+        private Button button1;
     }
 }

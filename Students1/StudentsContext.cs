@@ -12,6 +12,7 @@ internal class StudentsContext : DbContext
     public DbSet<Group> Groups { get; set; }
     public StudentsContext()
     {
+        Database.EnsureDeleted();
         Database.EnsureCreated();
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

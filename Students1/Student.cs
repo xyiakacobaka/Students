@@ -43,6 +43,16 @@ internal class Student
             else value = "";
         }
     }
+    private int grade;
+    public int Grade
+    {
+        get { return grade; }
+        set
+        {
+            grade = value;
+        }
+    }
+
     public string Group;
     public string group
     {
@@ -52,20 +62,21 @@ internal class Student
             Group = value;
         }
     }
-    public Student(string LastName, string FirstName, string SecondName,  string Group)
+    public Student(string LastName, string FirstName, string SecondName, string Grade, string Group)
     {
         this.FirstName = FirstName;
         this.SecondName = SecondName;
         this.LastName = LastName;
-        this.Group = Group;
+        this.Grade = Int16.Parse(Grade);
+        this.Group = Group;
     }
     public Student()
     {
         FirstName = "";
         SecondName = "";
         LastName = "";
+        Grade = 0;
         Group = "";
     }
 }
-
 

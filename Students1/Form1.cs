@@ -34,7 +34,7 @@ namespace WinFormsApp1
                 Form3 Form3 = new Form3();
                 Form2 Form2 = new Form2();
                 if (LasrNameText.Text != string.Empty && FirstNameText.Text != string.Empty &&
-                    SecondNameText.Text != string.Empty && Group.Text != string.Empty)
+                    SecondNameText.Text != string.Empty && Group.Text != string.Empty && textBox3.Text != string.Empty)
                 {
                     bool succes = Int32.TryParse(Group.Text, out int x);
                     if (succes && x == 1 || x == 2 || x == 3 || x == 4)
@@ -42,6 +42,7 @@ namespace WinFormsApp1
                         student.FirstName = FirstNameText.Text;
                         student.LastName = LasrNameText.Text;
                         student.SecondName = SecondNameText.Text;
+                        student.Grade = Int16.Parse(textBox3.Text);
                         student.Group = Group.Text;
                         db.Add(student);
                         db.SaveChanges();
@@ -50,6 +51,7 @@ namespace WinFormsApp1
                         SecondNameText.Text = "";
                         LasrNameText.Text = "";
                         Group.Text = "";
+                        textBox3.Text = "";
                         con = new SqlConnection(ConnectionString);
                         con.Open();
                         SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students", con);
@@ -101,9 +103,9 @@ namespace WinFormsApp1
             if (textBox2.Text != string.Empty)
             {
                 con.Open();
-                SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE lastname = @lastname", con);
-                string lastname = textBox2.Text;
-                sdf.SelectCommand.Parameters.AddWithValue("@lastname", lastname);
+                SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE [group] = @group", con);
+                string group = textBox2.Text;
+                sdf.SelectCommand.Parameters.AddWithValue("@group", group);
                 DataTable sd = new DataTable();
                 sdf.Fill(sd);
                 con.Close();
@@ -161,6 +163,18 @@ namespace WinFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlDataAdapter sdf = new SqlDataAdapter("SELECT * FROM Students WHERE [Grade] = @grade", con);
+            int grade = 3;
+            sdf.SelectCommand.Parameters.AddWithValue("@grade", grade);
+            DataTable sd = new DataTable();
+            sdf.Fill(sd);
+            con.Close();
+            dataGridView1.DataSource = sd;
         }
     }
 }
